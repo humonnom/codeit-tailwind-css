@@ -1,5 +1,7 @@
 import GradientIcon from "@/components/GradientIcon";
 import GradientText from "@/components/GradientText";
+import AnimatedAnchor from "@/components/AnimatedAnchor";
+import AnimatedSlideAnchor from "@/components/AnimatedSlideAnchor";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
     >
       <GradientIcon />
       <GradientText />
+      <AnimatedAnchor />
+      <AnimatedSlideAnchor />
     </main>
   );
 }
