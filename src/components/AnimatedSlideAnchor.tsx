@@ -1,9 +1,9 @@
 function AnimatedSlideAnchor() {
   return (
-    <div className="w-96">
+    <div className="w-80">
       <a
         href="/sell"
-        className="text-lg overflow-hidden border-b pb-4 font-medium group flex flex-row default:border-black w-4/5"
+        className="text-lg overflow-hidden border-b pb-4 font-medium group flex flex-row border-black"
       >
         <svg
           viewBox="0 0 20 20"
