@@ -1,36 +1,25 @@
 "use client";
-// import GradientIcon from "@/components/GradientIcon";
-// import GradientText from "@/components/GradientText";
-// import AnimatedAnchor from "@/components/AnimatedAnchor";
-// import AnimatedSlideAnchor from "@/components/AnimatedSlideAnchor";
-import CustomSelector from "@/components/CustomSelector";
-
-const items = {
-  ALL: "모든 타입",
-  LEGACY: "Legacy",
-  V1: "Version 1",
-  V2: "Version 2",
-  V3: "Version 3",
-};
-const selectItems = Object.entries(items).map(([key, value]) => ({
-  key,
-  label: value,
-}));
+import Modal from "@/components/Modal";
+import { useState } from "react";
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24`}
     >
-      {/*<GradientIcon />*/}
-      {/*<GradientText />*/}
-      {/*<AnimatedAnchor />*/}
-      {/*<AnimatedSlideAnchor />*/}
-      <CustomSelector
-        items={selectItems}
-        onSelect={() => {}}
-        initialItem={selectItems[0]}
-      />
+      <button
+        onClick={() => setIsOpen(true)}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Open Modal
+      </button>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="p-8">
+          <h1 className="text-2xl font-bold">Modal Title</h1>
+          <p className="mt-4">Modal Content</p>
+        </div>
+      </Modal>
     </main>
   );
 }
