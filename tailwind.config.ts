@@ -11,6 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        codeit_purple: "#6500c3",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
