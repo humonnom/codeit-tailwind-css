@@ -53,18 +53,18 @@ export default function Modal({
 }: ModalProps) {
   const ref = useRef<HTMLDialogElement>(null);
 
-  const [animation, setAnimation] = useState<"modal-open" | "modal-close">(
-    "modal-open",
-  );
+  const [animation, setAnimation] = useState<
+    "animate-modal-open" | "animate-modal-close"
+  >("animate-modal-open");
 
   useEffect(() => {
     if (isOpen) {
-      setAnimation("modal-open");
+      setAnimation("animate-modal-open");
     }
   }, [isOpen]);
 
   const handleClose = () => {
-    setAnimation("modal-close");
+    setAnimation("animate-modal-close");
     setTimeout(() => {
       onClose();
     }, 350);
