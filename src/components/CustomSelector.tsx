@@ -25,7 +25,8 @@ function CustomSelector(props: CustomSelectorProps) {
       isOpen={isOpen}
       onOpenChange={() => setIsOpen((prev) => !prev)}
       onSelectionChange={(keys) => {
-        const selectedKey = Array.from(keys as Set<React.Key>)[0] as string;
+        const selectedKey = (keys as Set<React.Key>).values().next()
+          .value as string;
         onSelect(selectedKey);
       }}
       variant="bordered"
@@ -40,13 +41,13 @@ function CustomSelector(props: CustomSelectorProps) {
           "data-[focus=true]:border-codeit_purple",
           "data-[hover=true]:border-codeit_purple",
         ],
-        listbox: "p-0",
-        selectorIcon: ["!ease-in-out", "!duration-[250ms]"],
+        selectorIcon: ["ease-in-out", "duration-[250ms]"],
       }}
       selectionMode="single"
-      disallowEmptySelection
+      // disallowEmptySelection
       listboxProps={{
         variant: "light",
+        className: "p-0",
       }}
       popoverProps={{
         offset: 0,
