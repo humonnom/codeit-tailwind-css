@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 type ModalProps = {
   isOpen: boolean;
@@ -56,12 +56,6 @@ export default function Modal({
   const [animation, setAnimation] = useState<
     "animate-modal-open" | "animate-modal-close"
   >("animate-modal-open");
-
-  useEffect(() => {
-    if (isOpen) {
-      setAnimation("animate-modal-open");
-    }
-  }, [isOpen]);
 
   const handleClose = () => {
     setAnimation("animate-modal-close");
