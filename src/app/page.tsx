@@ -14,15 +14,17 @@ export default function Home() {
       >
         Open Modal
       </button>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        title={"Modal Title"}
-      >
-        <div className="p-8">
-          <p className="mt-4">Modal Content</p>
-        </div>
-      </Modal>
+      {isOpen && (
+        <Modal
+          title={"Modal Title"}
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+        >
+          <div className="p-8">
+            <p className="mt-4">Modal Content</p>
+          </div>
+        </Modal>
+      )}
     </main>
   );
 }
