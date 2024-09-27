@@ -11,18 +11,18 @@ const config: Config = {
   theme: {
     extend: {
       keyframes: {
-        "modal-open": {
+        open: {
           from: { opacity: "0%", transform: "translateY(-20px)" },
           to: { opacity: "100%", transform: "translateY(0)" },
         },
-        "modal-close": {
+        close: {
           from: { opacity: "100%", transform: "translateY(0)" },
           to: { opacity: "0%", transform: "translateY(-20px)" },
         },
       },
       animation: {
-        "modal-open": "modal-open 300ms ease-in-out forwards",
-        "modal-close": "modal-close 300ms ease-in-out forwards",
+        "modal-open": "open 300ms ease-in-out forwards",
+        "modal-close": "close 300ms ease-in-out forwards",
       },
       colors: {
         codeit_purple: "#6500c3",
