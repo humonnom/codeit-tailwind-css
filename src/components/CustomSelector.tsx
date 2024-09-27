@@ -62,13 +62,13 @@ function CustomSelector(props: CustomSelectorProps) {
         },
       }}
     >
-      {items.map((item) => (
+      {items.map((item, i) => (
         <SelectItem
           key={item.key}
           classNames={{
             base: ["m-0", "text-neutral-400", listItemHeight],
           }}
-          showDivider
+          showDivider={i !== items.length - 1}
           hideSelectedIcon
         >
           {item.label}
