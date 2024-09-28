@@ -4,10 +4,23 @@ type DoughnutChartProps = {
   strokeWidth: number;
 };
 
-const DonutChart = ({}: DoughnutChartProps) => {
+const DonutChart = ({ radius, strokeWidth }: DoughnutChartProps) => {
+  const containerSize = radius * 2 + strokeWidth;
+
   return (
-    <svg width={100} height={100} viewBox={"0 0 100 100"}>
-      <circle cx="50" cy="50" r="50" />
+    <svg
+      width={containerSize}
+      height={containerSize}
+      viewBox={`0 0 ${containerSize} ${containerSize}`}
+    >
+      <circle
+        cx={containerSize / 2}
+        cy={containerSize / 2}
+        r={radius}
+        fill={"transparent"}
+        stroke={"#F8FAFC"}
+        strokeWidth={strokeWidth}
+      />
     </svg>
   );
 };
