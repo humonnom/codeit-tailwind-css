@@ -1,23 +1,29 @@
 "use client";
-import { useEffect } from "react";
-// import useMeasure from "react-use-measure";
-import useMeasure from "@/hooks/useMeasure";
+import { useEffect, useState } from "react";
+import usePrevious from "@/hooks/usePrevious";
+import { Button } from "@nextui-org/react";
 
 export default function Home() {
-  const [ref, bounds] = useMeasure();
-
-  useEffect(() => {
-    console.log("[page: line8] bounds: ", bounds);
-  }, [bounds]);
+  const [isOpen, setIsOpen] = useState(false);
+  const previous = usePrevious(isOpen);
 
   return (
     <main
-      className={`container mx-auto flex w-screen h-screen items-center justify-between`}
+      className={`container mx-auto flex flex-col w-screen h-screen items-center justify-center gap-y-4`}
     >
-      <div className={"w-full"}>
-        <textarea className={"bg-blue-500/20 resize border-4"} ref={ref} />
-        <p>Height :{bounds.height}</p>
-      </div>
+      <Button
+        color="primary"
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        Toggle
+      </Button>
+      <p>* isOpen: {isOpen ? "true" : "false"}</p>
+      <p>
+        * Previous:{" "}
+        {previous === undefined ? "undefined" : previous ? "true" : "false"}
+      </p>
     </main>
   );
 }
