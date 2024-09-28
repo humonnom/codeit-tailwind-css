@@ -1,3 +1,3 @@
 Tailwind 실습
 
-* chart
+* progress bar
