@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 type DoughnutChartProps = {
   percentage: number;
   radius: number;
@@ -5,13 +7,22 @@ type DoughnutChartProps = {
 };
 
 const DonutChart = ({
-  percentage,
+  percentage: _percentage,
   radius,
   strokeWidth,
 }: DoughnutChartProps) => {
+  const [percentage, setPercentage] = useState(0);
   const containerSize = radius * 2 + strokeWidth;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setPercentage(_percentage);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [_percentage]);
 
   return (
     <svg
@@ -36,6 +47,7 @@ const DonutChart = ({
         strokeWidth={strokeWidth}
         strokeDasharray={circumference}
         style={{ strokeDashoffset }}
+        className="transition-all ease-out duration-1000"
       />
     </svg>
   );
