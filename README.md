@@ -1,3 +1,3 @@
-Animation 실습
+Tailwind 실습
 
-* useMeasure ✅
+* chart ✅
