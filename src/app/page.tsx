@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import usePrevious from "@/hooks/usePrevious";
 import { Button } from "@nextui-org/react";
 
