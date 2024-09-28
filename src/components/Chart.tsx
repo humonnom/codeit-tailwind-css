@@ -4,8 +4,14 @@ type DoughnutChartProps = {
   strokeWidth: number;
 };
 
-const DonutChart = ({ radius, strokeWidth }: DoughnutChartProps) => {
+const DonutChart = ({
+  percentage,
+  radius,
+  strokeWidth,
+}: DoughnutChartProps) => {
   const containerSize = radius * 2 + strokeWidth;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   return (
     <svg
@@ -20,6 +26,16 @@ const DonutChart = ({ radius, strokeWidth }: DoughnutChartProps) => {
         fill={"transparent"}
         stroke={"#F8FAFC"}
         strokeWidth={strokeWidth}
+      />
+      <circle
+        cx={containerSize / 2}
+        cy={containerSize / 2}
+        r={radius}
+        fill={"transparent"}
+        stroke={"#0F172A"}
+        strokeWidth={strokeWidth}
+        strokeDasharray={circumference}
+        style={{ strokeDashoffset }}
       />
     </svg>
   );
