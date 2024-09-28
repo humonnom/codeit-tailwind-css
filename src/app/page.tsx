@@ -1,30 +1,23 @@
 "use client";
-import Modal from "@/components/Modal";
-import { useState } from "react";
+import { useEffect } from "react";
+// import useMeasure from "react-use-measure";
+import useMeasure from "@/hooks/useMeasure";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [ref, bounds] = useMeasure();
+
+  useEffect(() => {
+    console.log("[page: line8] bounds: ", bounds);
+  }, [bounds]);
+
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24`}
+      className={`container mx-auto flex w-screen h-screen items-center justify-between`}
     >
-      <button
-        onClick={() => setIsOpen(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Open Modal
-      </button>
-      {isOpen && (
-        <Modal
-          title={"Modal Title"}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-        >
-          <div className="p-8">
-            <p className="mt-4">Modal Content</p>
-          </div>
-        </Modal>
-      )}
+      <div className={"w-full"}>
+        <textarea className={"bg-blue-500/20 resize"} ref={ref} />
+        <p>Height :{bounds.height}</p>
+      </div>
     </main>
   );
 }
