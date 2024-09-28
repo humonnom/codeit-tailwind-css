@@ -28,7 +28,7 @@ export default function Home() {
           </span>
         </div>
         <div className={"mr-5"}>
-          <DonutChart _percentage={percentage} radius={66} strokeWidth={32} />
+          <DonutChart percentage={percentage} radius={66} strokeWidth={32} />
         </div>
       </div>
       <Button
