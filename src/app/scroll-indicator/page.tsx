@@ -1,5 +1,4 @@
 "use client";
-import { useScroll, animated } from "@react-spring/web";
 
 function LoremIpsum() {
   return (
@@ -79,16 +78,9 @@ function LoremIpsum() {
 }
 
 function ScrollIndicator() {
-  const { scrollYProgress } = useScroll({
-    config: { duration: 20, easing: (num) => num },
-  });
-
   return (
     <div className={"scroll-indicator"}>
-      <animated.div
-        className="fixed top-0 left-0 right-0 h-2.5 bg-red-500 origin-left"
-        style={{ scaleX: scrollYProgress }}
-      />
+      <div className="fixed top-0 left-0 right-0 h-2.5 bg-red-500 origin-left" />
       <h1
         className={"font-bold text-4xl text-center mt-[100px] mx-0 mb-[40px]"}
       >
