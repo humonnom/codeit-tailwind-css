@@ -21,21 +21,18 @@ function ScrollLinked() {
     <div className="h-full w-full bg-gray-900">
       <div className="h-full w-full ">
         <motion.div
-          className="bg-orange-400 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full w-full fixed"
+          className="bg-orange-400 top-0 left-0 transform h-full w-full fixed"
           style={{
             clipPath,
           }}
         >
           <h1 className="leading-normal pl-[8vw] font-bold text-[8vw] gap-1">
             <span className="overflow-hidden block">
-              <motion.span
-                className={"overflow-hidden block"}
-                style={{ y: yPercent }}
-              >
+              <motion.span className={"block"} style={{ y: yPercent }}>
                 Aha!
               </motion.span>
             </span>
-            <span className="overflow-hidden block text-[rgb(5, 74, 238)]">
+            <span className="overflow-hidden block">
               <motion.span className={"block"} style={{ y: yPercent }}>
                 You found me!
               </motion.span>
