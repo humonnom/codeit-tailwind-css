@@ -37,7 +37,7 @@ function ScrollLinked() {
           </h1>
         </motion.div>
       </div>
-      {Array.from({ length: PAGE_COUNT }, (_, i) => i).map((index) => (
+      {Array.from({ length: PAGE_COUNT }, (_, index) => (
         <div className="w-screen h-screen" key={index} />
       ))}
     </div>
