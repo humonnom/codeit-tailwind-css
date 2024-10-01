@@ -6,10 +6,7 @@ const PAGE_COUNT = 5;
 
 function ScrollLinked() {
   const { scrollYProgress } = useScroll();
-  const clipPath = useTransform(
-    scrollYProgress,
-    (scrollYProgress) => `circle(${scrollYProgress * 100}%)`,
-  );
+  const clipPath = useTransform(scrollYProgress, (y) => `circle(${y * 100}%)`);
 
   const yPercent = useTransform(
     scrollYProgress,
