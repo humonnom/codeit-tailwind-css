@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
-
-type Element = HTMLElement | null;
+import { RefCallback, useCallback, useEffect, useState } from "react";
 
 export interface RectReadOnly {
   readonly x: number;
@@ -13,7 +11,9 @@ export interface RectReadOnly {
   readonly left: number;
 }
 
-const useMeasure = (): [(node: Element) => void, RectReadOnly] => {
+type Element = HTMLElement | SVGElement | null;
+
+const useMeasure = (): [RefCallback<Element>, RectReadOnly] => {
   const [element, setElement] = useState<Element>(null);
   const [currentRect, setCurrentRect] = useState<RectReadOnly>({
     x: 0,
