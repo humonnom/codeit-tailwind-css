@@ -33,7 +33,7 @@ function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
   const remove = () => {
     try {
       localStorage.removeItem(key);
-      setStoredValue(undefined as unknown as T);
+      setStoredValue(undefined as T);
     } catch (error) {
       console.error(error);
     }
