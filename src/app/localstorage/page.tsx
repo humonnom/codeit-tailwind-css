@@ -10,8 +10,8 @@ const Demo = () => {
       <div>Value: {value}</div>
       <button onClick={() => setValue("bar")}>bar</button>
       <button onClick={() => setValue("baz")}>baz</button>
-      <button onClick={() => setValue((value) => value + "!")}>
-        (value) =&gt; value + &quot;!&quot;
+      <button onClick={() => setValue((value) => (value ?? "") + "!")}>
+        Add exclamation mark
       </button>
       <button onClick={() => remove()}>Remove</button>
     </div>
